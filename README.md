@@ -1,10 +1,8 @@
 # Web3 Wallet
-___
 
 A web3 wallet built with React and TypeScript.
 
 ## Technologies Used
-___
 
 - React
 - TypeScript
@@ -12,7 +10,6 @@ ___
 - Ethers.js for interacting with the Ethereum blockchain
 
 ## Getting Started
-___
 
 - Clone the repository: git clone https://github.com/mridul-giri/web3-wallet.git
 - Install dependencies: npm install
