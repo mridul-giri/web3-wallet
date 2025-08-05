@@ -1,13 +1,13 @@
 import type { Wallet } from "ethers";
 import { useState } from "react";
 
-export default function EtherumWallet({ wallet }: { wallet: Wallet[] }) {
+export default function EthereumWallet({ wallet }: { wallet: Wallet[] }) {
   const [showPrivateKey, setShowPrivateKey] = useState<boolean>(false);
   const [showPublicKey, setShowPublicKey] = useState<boolean>(false);
 
   return (
     <div>
-      <h3 className="text-center text-xl">Etherum Wallet</h3>
+      <h3 className="text-center text-xl">Ethereum Wallet</h3>
       {wallet.map((i, index) => (
         <div className="flex flex-col justify-center items-center" key={index}>
           <div className="w-7xl border py-5 px-10 m-2 rounded-xl bg-gray-300 text-gray-800">

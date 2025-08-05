@@ -2,7 +2,7 @@ import { mnemonicToSeed } from "bip39";
 import { HDNodeWallet } from "ethers";
 import { Wallet } from "ethers";
 
-export const createEtherumWallet = async (
+export const createEthereumWallet = async (
   mnemonic: string,
   etherumIdx: number
 ) => {

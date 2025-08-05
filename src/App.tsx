@@ -2,17 +2,17 @@ import { useState } from "react";
 import { generateMnemonic } from "bip39";
 import { Keypair } from "@solana/web3.js";
 import { Wallet } from "ethers";
-import { createEtherumWallet } from "./utils/createEtherumWallet";
+import { createEthereumWallet } from "./utils/createEthereumWallet";
 import { createSolanaWallet } from "./utils/createSolanaWallet";
 import SolanaWallet from "./components/SolanaWallet";
-import EtherumWallet from "./components/EtherumWallet";
+import EthereumWallet from "./components/EthereumWallet";
 
 export default function App() {
   const [mnemonic, setmnemonic] = useState<string>("");
   const [solanaIdx, setSolanaIdx] = useState<number>(0);
   const [solanaWallet, setSolanaWallet] = useState<Keypair[]>([]);
-  const [etherumIdx, setEtherumIdx] = useState<number>(0);
-  const [etherumWallet, setEtherumWallet] = useState<Wallet[]>([]);
+  const [ethereumIdx, setEthereumIdx] = useState<number>(0);
+  const [ethereumWallet, setEthereumWallet] = useState<Wallet[]>([]);
   const [selectWalletType, setSelectWalletType] = useState<string>("solana");
 
   const generateWords = () => {
@@ -25,10 +25,10 @@ export default function App() {
       const keyPair = await createSolanaWallet(mnemonic, solanaIdx);
       setSolanaIdx(solanaIdx + 1);
       setSolanaWallet([...solanaWallet, keyPair]);
-    } else if (selectWalletType == "etherum") {
-      const wallet = await createEtherumWallet(mnemonic, etherumIdx);
-      setEtherumIdx(etherumIdx + 1);
-      setEtherumWallet([...etherumWallet, wallet]);
+    } else if (selectWalletType == "ethereum") {
+      const wallet = await createEthereumWallet(mnemonic, ethereumIdx);
+      setEthereumIdx(ethereumIdx + 1);
+      setEthereumWallet([...ethereumWallet, wallet]);
     }
   };
 
@@ -48,12 +48,12 @@ export default function App() {
           Solana
         </span>
         <span
-          onClick={() => setSelectWalletType("etherum")}
+          onClick={() => setSelectWalletType("ethereum")}
           className={`cursor-pointer text-xl ${
-            selectWalletType == "etherum" ? `underline` : "hover:underline"
+            selectWalletType == "ethereum" ? `underline` : "hover:underline"
           }`}
         >
-          Etherum
+          Ethereum
         </span>
       </div>
       {mnemonic ? (
@@ -85,7 +85,7 @@ export default function App() {
         {selectWalletType == "solana" ? (
           <SolanaWallet wallet={solanaWallet} />
         ) : (
-          <EtherumWallet wallet={etherumWallet} />
+          <EthereumWallet wallet={ethereumWallet} />
         )}
       </div>
     </div>
